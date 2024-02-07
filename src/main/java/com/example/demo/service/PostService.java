@@ -3,15 +3,19 @@ package com.example.demo.service;
 import com.example.demo.model.Post;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 @Service
 public class PostService {
-    public Post[] listAllPosts()
-    {
+    private ArrayList<Post> posts = new ArrayList<>();
 
-        return new Post[]{
-                new Post("Zero", 0),
-                new Post("First", 228),
-                new Post("Second", 322)
-        };
+    public ArrayList<Post> listAllPosts()
+    {
+        return posts;
+    }
+
+    public void create(String text){
+        posts.add(new Post(text, new Date()));
     }
 }

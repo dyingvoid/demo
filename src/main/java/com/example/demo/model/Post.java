@@ -13,6 +13,12 @@ public class Post {
         this.likes = likes;
     }
 
+    public Post(String text, Date creationDate){
+        this.text = text;
+        this.creationDate = creationDate;
+        this.likes = 0;
+    }
+
     public String getText() {
         return text;
     }
