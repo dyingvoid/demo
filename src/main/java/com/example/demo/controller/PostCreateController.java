@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.repository.PostRepository;
 import com.example.demo.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,7 +14,8 @@ public class PostCreateController {
     private final PostService service;
 
     @Autowired
-    public PostCreateController(PostService service)
+    public PostCreateController(PostService service,
+                                PostRepository postRepository)
     {
         this.service = service;
     }

@@ -1,25 +1,24 @@
-package com.example.demo.model;
+package com.example.demo.domain;
+
+import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.util.Date;
 
+@Entity
 public class Post {
-    private String text;
-    private Integer likes;
-    private Date creationDate;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    public Post(String text, Integer likes)
-    {
-        this.text = text;
-        this.likes = likes;
-    }
+    private String text;
 
-    public Post(Long id, String text, Date creationDate){
-        this.text = text;
-        this.creationDate = creationDate;
-        this.likes = 0;
-        this.id = id;
-    }
+    @Column(nullable = false)
+    private int likes;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @CreationTimestamp
+    private Date creationDate;
 
     public String getText() {
         return text;
