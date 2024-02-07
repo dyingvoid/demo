@@ -9,6 +9,7 @@ import java.util.Date;
 @Service
 public class PostService {
     private ArrayList<Post> posts = new ArrayList<>();
+    private Long counter = 0L;
 
     public ArrayList<Post> listAllPosts()
     {
@@ -16,6 +17,7 @@ public class PostService {
     }
 
     public void create(String text){
-        posts.add(new Post(text, new Date()));
+        posts.add(new Post(counter, text, new Date()));
+        counter++;
     }
 }
